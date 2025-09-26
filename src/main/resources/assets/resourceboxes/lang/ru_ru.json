@@ -1,0 +1,11 @@
+{
+  "itemGroup.resourceboxes.resourceboxes_group": "Коробки с ресурсами",
+  "item.resourceboxes.ore_box": "Коробка с рудой",
+  "item.resourceboxes.food_box": "Коробка с едой",
+  "item.resourceboxes.weapon_box": "Коробка с оружием",
+  "item.resourceboxes.rich_ore_box": "Коробка с богатой рудой",
+  "item.resourceboxes.resource_ore": "Ресурсная руда",
+  "block.resourceboxes.resource_ore": "Ресурсная руда",
+  "tooltip.resourceboxes.possible_drops": "Возможные предметы:",
+  "tooltip.resourceboxes.drop_entry": "%s: %s"
+}

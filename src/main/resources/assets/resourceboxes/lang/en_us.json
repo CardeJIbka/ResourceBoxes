@@ -1,0 +1,11 @@
+{
+  "itemGroup.resourceboxes.resourceboxes_group": "Resource Boxes",
+  "item.resourceboxes.ore_box": "Ore Box",
+  "item.resourceboxes.food_box": "Food Box",
+  "item.resourceboxes.weapon_box": "Weapon Box",
+  "item.resourceboxes.rich_ore_box": "Rich Ore Box",
+  "item.resourceboxes.resource_ore": "Resource Ore",
+  "block.resourceboxes.resource_ore": "Resource Ore",
+  "tooltip.resourceboxes.possible_drops": "Possible Drops:",
+  "tooltip.resourceboxes.drop_entry": "%s: %s"
+}

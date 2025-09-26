@@ -1,0 +1,15 @@
+{
+  "type": "crafting_shaped",
+  "group": "tools",
+  "pattern": [
+    "   ",
+    " C ",
+    "   "
+  ],
+  "key": {
+    "C": "minecraft:chest"
+  },
+  "result": {
+    "id": "resourceboxes:ore_box"
+  }
+}
