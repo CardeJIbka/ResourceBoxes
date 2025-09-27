@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "resourceboxes:resource_ore"
+    "resourceboxes:resource_ore",
+    "resourceboxes:resource_block"
   ]
 }

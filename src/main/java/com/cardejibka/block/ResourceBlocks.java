@@ -15,9 +15,16 @@ import net.minecraft.util.Identifier;
 public class ResourceBlocks {
 
     public static final Block RESOURCE_ORE = registerBlock("resource_ore",
-            new Block(AbstractBlock.Settings.create()
+            new ResourceOreBlock(AbstractBlock.Settings.create()
                     .registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(ResourceBoxes.MOD_ID, "resource_ore")))
                     .strength(3.0f, 3.0f)
+                    .requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
+
+    public static final Block RESOURCE_BLOCK = registerBlock("resource_block",
+            new Block(AbstractBlock.Settings.create()
+                    .registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(ResourceBoxes.MOD_ID, "resource_block")))
+                    .strength(4.5f, 4.5f)
                     .requiresTool()
                     .sounds(BlockSoundGroup.STONE)));
 

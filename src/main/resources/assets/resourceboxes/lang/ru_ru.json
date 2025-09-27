@@ -5,6 +5,9 @@
   "item.resourceboxes.weapon_box": "Коробка с оружием",
   "item.resourceboxes.rich_ore_box": "Коробка с богатой рудой",
   "item.resourceboxes.resource_ore": "Ресурсная руда",
+  "item.resourceboxes.resource_shard": "Фрагмент ресурса",
+  "item.resourceboxes.resource_gem": "Кристалл ресурса",
+  "item.resourceboxes.resource_block": "Блок ресурса",
   "block.resourceboxes.resource_ore": "Ресурсная руда",
   "tooltip.resourceboxes.possible_drops": "Возможные предметы:",
   "tooltip.resourceboxes.drop_entry": "%s: %s"

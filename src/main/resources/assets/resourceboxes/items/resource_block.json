@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "resourceboxes:block/resource_block"
+  }
+}

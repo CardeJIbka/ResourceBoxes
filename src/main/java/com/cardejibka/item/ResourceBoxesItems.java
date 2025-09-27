@@ -18,7 +18,7 @@ public class ResourceBoxesItems {
     // Определяем кастомную вкладку
     public static final RegistryKey<ItemGroup> RESOURCE_BOXES_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(ResourceBoxes.MOD_ID, "resourceboxes_group"));
 
-    // Регистрируем предметы
+    // Регистрируем коробки
     public static final Item ORE_BOX = register("ore_box", new OreBoxItem(new Item.Settings() {
         {
             registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ResourceBoxes.MOD_ID, "ore_box")));
@@ -43,6 +43,19 @@ public class ResourceBoxesItems {
             maxCount(64);
         }
     }));
+    public static final Item RESOURCE_SHARD = register("resource_shard", new Item(new Item.Settings() {
+        {
+            registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ResourceBoxes.MOD_ID, "resource_shard")));
+            maxCount(64);
+        }
+    }));
+    public static final Item RESOURCE_GEM = register("resource_gem", new Item(new Item.Settings() {
+        {
+            registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ResourceBoxes.MOD_ID, "resource_gem")));
+            maxCount(64);
+        }
+    }));
+
 
     // Метод регистрации предмета
     private static Item register(String name, Item item) {
@@ -61,6 +74,9 @@ public class ResourceBoxesItems {
                     entries.add(FOOD_BOX);
                     entries.add(WEAPON_BOX);
                     entries.add(RICH_ORE_BOX);
+                    entries.add(RESOURCE_SHARD);
+                    entries.add(RESOURCE_GEM);
+                    entries.add(ResourceBlocks.RESOURCE_BLOCK);
                     entries.add(ResourceBlocks.RESOURCE_ORE);
                 })
                 .build());

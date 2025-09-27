@@ -2,14 +2,14 @@
   "type": "crafting_shaped",
   "group": "resourceboxes_group",
   "pattern": [
-    "   ",
-    " C ",
-    "   "
+    "GGG",
+    "GGG",
+    "GGG"
   ],
   "key": {
-    "C": "minecraft:chest"
+    "G": "resourceboxes:resource_gem"
   },
   "result": {
-    "id": "resourceboxes:ore_box"
+    "id": "resourceboxes:resource_block"
   }
 }

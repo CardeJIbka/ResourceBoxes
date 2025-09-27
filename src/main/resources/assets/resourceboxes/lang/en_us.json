@@ -5,6 +5,9 @@
   "item.resourceboxes.weapon_box": "Weapon Box",
   "item.resourceboxes.rich_ore_box": "Rich Ore Box",
   "item.resourceboxes.resource_ore": "Resource Ore",
+  "item.resourceboxes.resource_shard": "Resource Shard",
+  "item.resourceboxes.resource_gem": "Resource Gem",
+  "item.resourceboxes.resource_block": "Block of Resource",
   "block.resourceboxes.resource_ore": "Resource Ore",
   "tooltip.resourceboxes.possible_drops": "Possible Drops:",
   "tooltip.resourceboxes.drop_entry": "%s: %s"
