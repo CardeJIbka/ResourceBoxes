@@ -2,6 +2,7 @@ package com.cardejibka;
 
 import com.cardejibka.block.ResourceBlocks;
 import com.cardejibka.item.ResourceBoxesItems;
+import com.cardejibka.loot.ModLootTableModifier;
 import com.cardejibka.worldgen.ModOreGeneration;
 import net.fabricmc.api.ModInitializer;
 
@@ -18,6 +19,7 @@ public class ResourceBoxes implements ModInitializer {
 		ResourceBoxesItems.initialize();
 		ResourceBlocks.registerModBlocks();
 		ModOreGeneration.generateOres();
+		ModLootTableModifier.modifyLootTables();
 
 		LOGGER.info("Launched");
 	}

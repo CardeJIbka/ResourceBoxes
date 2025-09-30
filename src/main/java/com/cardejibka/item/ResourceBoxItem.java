@@ -1,6 +1,5 @@
 package com.cardejibka.item;
 
-
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
@@ -19,7 +18,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,48 +66,47 @@ public abstract class ResourceBoxItem extends Item {
             Random random = new Random();
             double rand = random.nextDouble();
             double cumulative = 0;
-            Item selectedItem = null;
+            DropEntry selectedEntry = null;
 
             // Определяем, какой предмет выпадет
-            for (int i = 0; i < drops.size(); i++) {
-                DropEntry entry = drops.get(i);
+            for (DropEntry entry : drops) {
                 cumulative += entry.chance;
-                if (rand < cumulative || i == drops.size() - 1) {
-                    selectedItem = entry.item;
+                if (rand <= cumulative) {
+                    selectedEntry = entry;
                     break;
                 }
             }
 
             // Гарантируем выбор последнего предмета, если ничего не выбрано
-            if (selectedItem == null) {
-                selectedItem = drops.get(drops.size() - 1).item;
+            if (selectedEntry == null) {
+                selectedEntry = drops.getLast();
             }
+
+            Item selectedItem = selectedEntry.item;
 
             // Определяем, является ли предмет инструментом, броней или оружием
             boolean isEquip = selectedItem.getDefaultStack().contains(DataComponentTypes.TOOL) || // Tools
                     selectedItem.getDefaultStack().contains(DataComponentTypes.EQUIPPABLE) || // Armor
                     selectedItem.getRegistryEntry().isIn(ItemTags.SWORDS); // Swords
 
-            // Определяем количество
+            // Определяем количество с наклонным распределением
+            int maxCount = selectedEntry.maxCount;
             int count;
-            if (isEquip) {
-                count = 1;
+            if (maxCount <= 1) {
+                count = 1; // Для предметов с maxCount=1 (например, броня, оружие)
             } else {
                 double randCount = random.nextDouble();
-                if (randCount < 0.50) {
-                    count = 1;
-                } else if (randCount < 0.75) {
-                    count = 2;
-                } else if (randCount < 0.88) {
-                    count = 3;
-                } else if (randCount < 0.95) {
-                    count = 4;
-                } else if (randCount < 0.98) {
-                    count = 5;
-                } else if (randCount < 0.995) {
-                    count = 6;
+                int range1 = (int) Math.ceil(maxCount * 0.3); // 30% от maxCount
+                int range2 = (int) Math.ceil(maxCount * 0.6); // 60% от maxCount
+                if (randCount < 0.5) {
+                    // 50% шанс на 0–30% от maxCount (1–range1)
+                    count = 1 + random.nextInt(Math.max(1, range1));
+                } else if (randCount < 0.85) {
+                    // 35% шанс на 30–60% от maxCount (range1+1–range2)
+                    count = range1 + 1 + random.nextInt(Math.max(1, range2 - range1));
                 } else {
-                    count = 7;
+                    // 15% шанс на 60–100% от maxCount (range2+1–maxCount)
+                    count = range2 + 1 + random.nextInt(Math.max(1, maxCount - range2));
                 }
             }
 
@@ -222,14 +219,18 @@ public abstract class ResourceBoxItem extends Item {
     public void appendTooltip(ItemStack stack, TooltipContext context, net.minecraft.component.type.TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
         textConsumer.accept(Text.translatable("tooltip.resourceboxes.possible_drops").formatted(Formatting.GRAY));
         for (DropEntry entry : getDrops()) {
-            String chanceStr = String.format("%.1f%%", entry.chance * 100);
+            float chancePercent = entry.chance * 100;
+            String chanceStr = chancePercent % 1 == 0 ? String.format("%.0f%%", chancePercent) : String.format("%.1f%%", chancePercent);
             MutableText itemName = Text.literal(entry.item.getName().getString()).formatted(entry.color);
             MutableText tooltipText = itemName.append(Text.literal(": ").formatted(Formatting.GRAY)).append(Text.literal(chanceStr).formatted(Formatting.GRAY));
+            if (entry.maxCount > 1) {
+                tooltipText = tooltipText.append(Text.literal(" (x1 - x" + entry.maxCount + ")").formatted(Formatting.GRAY));
+            }
             textConsumer.accept(tooltipText);
         }
     }
 
-    protected record DropEntry(Item item, float chance, Formatting color) {}
+    protected record DropEntry(Item item, float chance, Formatting color, int maxCount) {}
 }
 
 class OreBoxItem extends ResourceBoxItem {
@@ -240,19 +241,20 @@ class OreBoxItem extends ResourceBoxItem {
     @Override
     protected List<DropEntry> getDrops() {
         List<DropEntry> drops = new ArrayList<>();
-        drops.add(new DropEntry(Items.COAL, 0.16f, Formatting.GREEN));
-        drops.add(new DropEntry(Items.COPPER_INGOT, 0.16f, Formatting.GREEN));
-        drops.add(new DropEntry(Items.REDSTONE, 0.13f, Formatting.GREEN));
-        drops.add(new DropEntry(Items.LAPIS_LAZULI, 0.13f, Formatting.GREEN));
-        drops.add(new DropEntry(Items.IRON_INGOT, 0.16f, Formatting.BLUE));
-        drops.add(new DropEntry(Items.QUARTZ, 0.10f, Formatting.BLUE));
-        drops.add(new DropEntry(Items.GOLD_INGOT, 0.12f, Formatting.LIGHT_PURPLE));
-        drops.add(new DropEntry(Items.DIAMOND, 0.02f, Formatting.RED));
-        drops.add(new DropEntry(Items.EMERALD, 0.017f, Formatting.RED));
-        drops.add(new DropEntry(Items.NETHERITE_SCRAP, 0.003f, Formatting.YELLOW));
+        drops.add(new DropEntry(Items.COAL, 0.15f, Formatting.GREEN, 32));
+        drops.add(new DropEntry(Items.COPPER_INGOT, 0.15f, Formatting.GREEN, 32));
+        drops.add(new DropEntry(Items.REDSTONE, 0.12f, Formatting.GREEN, 48));
+        drops.add(new DropEntry(Items.LAPIS_LAZULI, 0.12f, Formatting.GREEN, 48));
+        drops.add(new DropEntry(Items.IRON_INGOT, 0.14f, Formatting.BLUE, 24));
+        drops.add(new DropEntry(Items.QUARTZ, 0.08f, Formatting.BLUE, 24));
+        drops.add(new DropEntry(Items.GOLD_INGOT, 0.10f, Formatting.LIGHT_PURPLE, 24));
+        drops.add(new DropEntry(Items.AMETHYST_SHARD, 0.06f, Formatting.LIGHT_PURPLE, 12));
+        drops.add(new DropEntry(Items.EMERALD, 0.05f, Formatting.RED, 8));
+        drops.add(new DropEntry(Items.DIAMOND, 0.03f, Formatting.RED, 8));
         return drops;
     }
 }
+
 
 class FoodBoxItem extends ResourceBoxItem {
     public FoodBoxItem(Settings settings) {
@@ -262,10 +264,10 @@ class FoodBoxItem extends ResourceBoxItem {
     @Override
     protected List<DropEntry> getDrops() {
         List<DropEntry> drops = new ArrayList<>();
-        drops.add(new DropEntry(Items.IRON_CHESTPLATE, 0.4f, Formatting.GRAY));
-        drops.add(new DropEntry(Items.GOLDEN_CHESTPLATE, 0.3f, Formatting.BLUE));
-        drops.add(new DropEntry(Items.DIAMOND_CHESTPLATE, 0.2f, Formatting.LIGHT_PURPLE));
-        drops.add(new DropEntry(Items.NETHERITE_CHESTPLATE, 0.1f, Formatting.RED));
+        drops.add(new DropEntry(Items.IRON_CHESTPLATE, 0.4f, Formatting.GRAY, 1));
+        drops.add(new DropEntry(Items.GOLDEN_CHESTPLATE, 0.3f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.DIAMOND_CHESTPLATE, 0.2f, Formatting.LIGHT_PURPLE, 1));
+        drops.add(new DropEntry(Items.NETHERITE_CHESTPLATE, 0.1f, Formatting.RED, 1));
         return drops;
     }
 }
@@ -278,14 +280,13 @@ class WeaponBoxItem extends ResourceBoxItem {
     @Override
     protected List<DropEntry> getDrops() {
         List<DropEntry> drops = new ArrayList<>();
-        drops.add(new DropEntry(Items.WOODEN_SWORD, 0.4f, Formatting.GRAY));
-        drops.add(new DropEntry(Items.STONE_SWORD, 0.3f, Formatting.BLUE));
-        drops.add(new DropEntry(Items.IRON_SWORD, 0.2f, Formatting.LIGHT_PURPLE));
-        drops.add(new DropEntry(Items.DIAMOND_SWORD, 0.1f, Formatting.RED));
+        drops.add(new DropEntry(Items.WOODEN_SWORD, 0.4f, Formatting.GRAY, 1));
+        drops.add(new DropEntry(Items.STONE_SWORD, 0.3f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.IRON_SWORD, 0.2f, Formatting.LIGHT_PURPLE, 1));
+        drops.add(new DropEntry(Items.DIAMOND_SWORD, 0.1f, Formatting.RED, 1));
         return drops;
     }
 }
-
 
 class RichOreBoxItem extends ResourceBoxItem {
     public RichOreBoxItem(Settings settings) {
@@ -295,8 +296,8 @@ class RichOreBoxItem extends ResourceBoxItem {
     @Override
     protected List<DropEntry> getDrops() {
         List<DropEntry> drops = new ArrayList<>();
-        drops.add(new DropEntry(Items.IRON_PICKAXE, 0.6f, Formatting.BLUE)); // Алмаз - синий
-        drops.add(new DropEntry(Items.DIAMOND_PICKAXE, 0.4f, Formatting.RED)); // Алмазный блок - красный
+        drops.add(new DropEntry(Items.IRON_PICKAXE, 0.6f, Formatting.BLUE, 1)); // Алмаз - синий
+        drops.add(new DropEntry(Items.DIAMOND_PICKAXE, 0.4f, Formatting.RED, 1)); // Алмазный блок - красный
         return drops;
     }
 }
