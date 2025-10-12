@@ -21,6 +21,13 @@ public class ResourceBlocks {
                     .requiresTool()
                     .sounds(BlockSoundGroup.STONE)));
 
+    public static final Block DEEPSLATE_RESOURCE_ORE = registerBlock("deepslate_resource_ore",
+            new ResourceOreBlock(AbstractBlock.Settings.create()
+                    .registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(ResourceBoxes.MOD_ID, "deepslate_resource_ore")))
+                    .strength(4.5f, 3.0f)
+                    .requiresTool()
+                    .sounds(BlockSoundGroup.STONE)));
+
     public static final Block RESOURCE_BLOCK = registerBlock("resource_block",
             new Block(AbstractBlock.Settings.create()
                     .registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(ResourceBoxes.MOD_ID, "resource_block")))

@@ -2,16 +2,16 @@
   "type": "crafting_shaped",
   "group": "resourceboxes_group",
   "pattern": [
-    "SGS",
+    "GGG",
     "GCG",
-    "SGS"
+    " S "
   ],
   "key": {
     "C": "minecraft:chest",
-    "S": "minecraft:stone",
+    "S": "minecraft:stick",
     "G": "resourceboxes:resource_gem"
   },
   "result": {
-    "id": "resourceboxes:ore_box"
+    "id": "resourceboxes:tool_box"
   }
 }

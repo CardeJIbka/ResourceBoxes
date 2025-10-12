@@ -37,9 +37,33 @@ public class ResourceBoxesItems {
             maxCount(64);
         }
     }));
-    public static final Item RICH_ORE_BOX = register("rich_ore_box", new RichOreBoxItem(new Item.Settings() {
+    public static final Item TOOL_BOX = register("tool_box", new ToolBoxItem(new Item.Settings() {
         {
-            registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ResourceBoxes.MOD_ID, "rich_ore_box")));
+            registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ResourceBoxes.MOD_ID, "tool_box")));
+            maxCount(64);
+        }
+    }));
+    public static final Item ARMOR_BOX = register("armor_box", new ArmorBoxItem(new Item.Settings() {
+        {
+            registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ResourceBoxes.MOD_ID, "armor_box")));
+            maxCount(64);
+        }
+    }));
+    public static final Item NETHER_BOX = register("nether_box", new NetherBoxItem(new Item.Settings() {
+        {
+            registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ResourceBoxes.MOD_ID, "nether_box")));
+            maxCount(64);
+        }
+    }));
+    public static final Item END_BOX = register("end_box", new EndBoxItem(new Item.Settings() {
+        {
+            registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ResourceBoxes.MOD_ID, "end_box")));
+            maxCount(64);
+        }
+    }));
+    public static final Item TRIM_BOX = register("trim_box", new TrimBoxItem(new Item.Settings() {
+        {
+            registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ResourceBoxes.MOD_ID, "trim_box")));
             maxCount(64);
         }
     }));
@@ -73,11 +97,16 @@ public class ResourceBoxesItems {
                     entries.add(ORE_BOX);
                     entries.add(FOOD_BOX);
                     entries.add(WEAPON_BOX);
-                    entries.add(RICH_ORE_BOX);
+                    entries.add(TOOL_BOX);
+                    entries.add(ARMOR_BOX);
+                    entries.add(TRIM_BOX);
+                    entries.add(NETHER_BOX);
+                    entries.add(END_BOX);
                     entries.add(RESOURCE_SHARD);
                     entries.add(RESOURCE_GEM);
                     entries.add(ResourceBlocks.RESOURCE_BLOCK);
                     entries.add(ResourceBlocks.RESOURCE_ORE);
+                    entries.add(ResourceBlocks.DEEPSLATE_RESOURCE_ORE);
                 })
                 .build());
     }

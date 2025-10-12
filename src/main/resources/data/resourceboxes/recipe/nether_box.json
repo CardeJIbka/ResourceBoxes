@@ -2,16 +2,16 @@
   "type": "crafting_shaped",
   "group": "resourceboxes_group",
   "pattern": [
-    "SGS",
+    "BGB",
     "GCG",
-    "SGS"
+    "BGB"
   ],
   "key": {
     "C": "minecraft:chest",
-    "S": "minecraft:stone",
+    "B": "minecraft:nether_bricks",
     "G": "resourceboxes:resource_gem"
   },
   "result": {
-    "id": "resourceboxes:ore_box"
+    "id": "resourceboxes:nether_box"
   }
 }

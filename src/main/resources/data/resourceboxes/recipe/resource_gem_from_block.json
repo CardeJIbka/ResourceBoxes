@@ -1,0 +1,16 @@
+{
+  "type": "crafting_shaped",
+  "group": "resourceboxes_group",
+  "pattern": [
+    "   ",
+    " B ",
+    "   "
+  ],
+  "key": {
+    "B": "resourceboxes:resource_block"
+  },
+  "result": {
+    "id": "resourceboxes:resource_gem",
+    "count": 9
+  }
+}

@@ -2,16 +2,16 @@
   "type": "crafting_shaped",
   "group": "resourceboxes_group",
   "pattern": [
-    "SGS",
+    "EGE",
     "GCG",
-    "SGS"
+    "EGE"
   ],
   "key": {
-    "C": "minecraft:chest",
-    "S": "minecraft:stone",
+    "C": "minecraft:shulker_shell",
+    "E": "minecraft:end_stone",
     "G": "resourceboxes:resource_gem"
   },
   "result": {
-    "id": "resourceboxes:ore_box"
+    "id": "resourceboxes:end_box"
   }
 }

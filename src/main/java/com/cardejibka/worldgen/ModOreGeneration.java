@@ -13,12 +13,20 @@ public class ModOreGeneration {
     public static final RegistryKey<PlacedFeature> RESOURCE_ORE_PLACED_KEY = RegistryKey.of(
             RegistryKeys.PLACED_FEATURE, Identifier.of(ResourceBoxes.MOD_ID, "resource_ore_placed")
     );
+    public static final RegistryKey<PlacedFeature> DEEPSLATE_RESOURCE_ORE_PLACED_KEY = RegistryKey.of(
+            RegistryKeys.PLACED_FEATURE, Identifier.of(ResourceBoxes.MOD_ID, "deepslate_resource_ore_placed")
+    );
 
     public static void generateOres() {
         BiomeModifications.addFeature(
                 BiomeSelectors.foundInOverworld(),
                 GenerationStep.Feature.UNDERGROUND_ORES,
                 RESOURCE_ORE_PLACED_KEY
+        );
+        BiomeModifications.addFeature(
+                BiomeSelectors.foundInOverworld(),
+                GenerationStep.Feature.UNDERGROUND_ORES,
+                DEEPSLATE_RESOURCE_ORE_PLACED_KEY
         );
     }
 }

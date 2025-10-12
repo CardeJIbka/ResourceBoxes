@@ -2,16 +2,16 @@
   "type": "crafting_shaped",
   "group": "resourceboxes_group",
   "pattern": [
-    "SGS",
+    "SSS",
     "GCG",
-    "SGS"
+    "SSS"
   ],
   "key": {
     "C": "minecraft:chest",
-    "S": "minecraft:stone",
+    "S": "minecraft:wheat_seeds",
     "G": "resourceboxes:resource_gem"
   },
   "result": {
-    "id": "resourceboxes:ore_box"
+    "id": "resourceboxes:food_box"
   }
 }
