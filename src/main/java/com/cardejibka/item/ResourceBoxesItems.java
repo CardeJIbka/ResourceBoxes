@@ -15,10 +15,8 @@ import net.minecraft.util.Identifier;
 public class ResourceBoxesItems {
     private ResourceBoxesItems() {}
 
-    // Определяем кастомную вкладку
     public static final RegistryKey<ItemGroup> RESOURCE_BOXES_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(ResourceBoxes.MOD_ID, "resourceboxes_group"));
 
-    // Регистрируем коробки
     public static final Item ORE_BOX = register("ore_box", new OreBoxItem(new Item.Settings() {
         {
             registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ResourceBoxes.MOD_ID, "ore_box")));
@@ -81,7 +79,6 @@ public class ResourceBoxesItems {
     }));
 
 
-    // Метод регистрации предмета
     private static Item register(String name, Item item) {
         Identifier id = Identifier.of(ResourceBoxes.MOD_ID, name);
         RegistryKey<Item> key = RegistryKey.of(RegistryKeys.ITEM, id);
@@ -89,7 +86,6 @@ public class ResourceBoxesItems {
     }
 
     public static void initialize() {
-        // Регистрируем кастомную вкладку
         Registry.register(Registries.ITEM_GROUP, RESOURCE_BOXES_GROUP, ItemGroup.create(null, 0)
                 .displayName(Text.translatable("itemGroup.resourceboxes.resourceboxes_group"))
                 .icon(() -> new ItemStack(ORE_BOX))

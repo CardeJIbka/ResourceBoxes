@@ -2,13 +2,13 @@
   "type": "crafting_shaped",
   "group": "resourceboxes_group",
   "pattern": [
-    "GGG",
-    "GCG",
-    "GGG"
+    "BBB",
+    "BCB",
+    "BBB"
   ],
   "key": {
     "C": "minecraft:chest",
-    "G": "resourceboxes:resource_gem"
+    "B": "resourceboxes:resource_block"
   },
   "result": {
     "id": "resourceboxes:trim_box"
