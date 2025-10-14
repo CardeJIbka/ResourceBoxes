@@ -1,0 +1,20 @@
+{
+  "itemGroup.resourceboxes.resourceboxes_group": "リソースボックス",
+  "item.resourceboxes.ore_box": "鉱石ボックス",
+  "item.resourceboxes.food_box": "食料ボックス",
+  "item.resourceboxes.nether_box": "ネザーボックス",
+  "item.resourceboxes.end_box": "エンドボックス",
+  "item.resourceboxes.weapon_box": "武器ボックス",
+  "item.resourceboxes.tool_box": "ツールボックス",
+  "item.resourceboxes.armor_box": "アーマーボックス",
+  "item.resourceboxes.trim_box": "トリムボックス",
+  "item.resourceboxes.resource_ore": "リソース鉱石",
+  "item.resourceboxes.deepslate_resource_ore": "深層岩リソース鉱石",
+  "item.resourceboxes.resource_shard": "リソースの欠片",
+  "item.resourceboxes.resource_gem": "リソースの宝石",
+  "item.resourceboxes.resource_block": "リソースブロック",
+  "block.resourceboxes.resource_ore": "リソース鉱石",
+  "block.resourceboxes.deepslate_resource_ore": "深層岩リソース鉱石",
+  "tooltip.resourceboxes.possible_drops": "可能なドロップ：",
+  "tooltip.resourceboxes.drop_entry": "%s: %s"
+}

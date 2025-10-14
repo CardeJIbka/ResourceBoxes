@@ -1,0 +1,20 @@
+{
+  "itemGroup.resourceboxes.resourceboxes_group": "Cajas de Recursos",
+  "item.resourceboxes.ore_box": "Caja de Mineral",
+  "item.resourceboxes.food_box": "Caja de Comida",
+  "item.resourceboxes.nether_box": "Caja del Nether",
+  "item.resourceboxes.end_box": "Caja del End",
+  "item.resourceboxes.weapon_box": "Caja de Armas",
+  "item.resourceboxes.tool_box": "Caja de Herramientas",
+  "item.resourceboxes.armor_box": "Caja de Armadura",
+  "item.resourceboxes.trim_box": "Caja de Recortes",
+  "item.resourceboxes.resource_ore": "Mineral de Recurso",
+  "item.resourceboxes.deepslate_resource_ore": "Mineral de Recurso de Pizarra Profunda",
+  "item.resourceboxes.resource_shard": "Fragmento de Recurso",
+  "item.resourceboxes.resource_gem": "Gema de Recurso",
+  "item.resourceboxes.resource_block": "Bloque de Recurso",
+  "block.resourceboxes.resource_ore": "Mineral de Recurso",
+  "block.resourceboxes.deepslate_resource_ore": "Mineral de Recurso de Pizarra Profunda",
+  "tooltip.resourceboxes.possible_drops": "Botines Posibles:",
+  "tooltip.resourceboxes.drop_entry": "%s: %s"
+}

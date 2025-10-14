@@ -1,0 +1,20 @@
+{
+  "itemGroup.resourceboxes.resourceboxes_group": "Ressourcenboxen",
+  "item.resourceboxes.ore_box": "Erzbox",
+  "item.resourceboxes.food_box": "Nahrungsmittelbox",
+  "item.resourceboxes.nether_box": "Nether-Box",
+  "item.resourceboxes.end_box": "End-Box",
+  "item.resourceboxes.weapon_box": "Waffenbox",
+  "item.resourceboxes.tool_box": "Werkzeugbox",
+  "item.resourceboxes.armor_box": "Rüstungsbox",
+  "item.resourceboxes.trim_box": "Zierbox",
+  "item.resourceboxes.resource_ore": "Ressourcerz",
+  "item.resourceboxes.deepslate_resource_ore": "Tiefschiefer-Ressourcerz",
+  "item.resourceboxes.resource_shard": "Ressourcensplitter",
+  "item.resourceboxes.resource_gem": "Ressourcenjuwel",
+  "item.resourceboxes.resource_block": "Ressourcenblock",
+  "block.resourceboxes.resource_ore": "Ressourcerz",
+  "block.resourceboxes.deepslate_resource_ore": "Tiefschiefer-Ressourcerz",
+  "tooltip.resourceboxes.possible_drops": "Mögliche Drops:",
+  "tooltip.resourceboxes.drop_entry": "%s: %s"
+}
