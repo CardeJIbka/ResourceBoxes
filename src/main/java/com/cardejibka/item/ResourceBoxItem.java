@@ -61,7 +61,7 @@ public abstract class ResourceBoxItem extends Item {
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
-        if (!world.isClient) {
+        if (!world.isClient()) {
             List<DropEntry> drops = getDrops();
             Random random = new Random();
             double rand = random.nextDouble();
@@ -378,16 +378,17 @@ class WeaponBoxItem extends ResourceBoxItem {
     @Override
     protected List<DropEntry> getDrops() {
         List<DropEntry> drops = new ArrayList<>();
-        drops.add(new DropEntry(Items.WOODEN_SWORD, 0.157f, Formatting.GREEN, 1));
-        drops.add(new DropEntry(Items.STONE_SWORD, 0.157f, Formatting.GREEN, 1));
-        drops.add(new DropEntry(Items.BOW, 0.123f, Formatting.GREEN, 1));
-        drops.add(new DropEntry(Items.IRON_SWORD, 0.128f, Formatting.BLUE, 1));
-        drops.add(new DropEntry(Items.CROSSBOW, 0.103f, Formatting.BLUE, 1));
-        drops.add(new DropEntry(Items.SHIELD, 0.103f, Formatting.BLUE, 1));
-        drops.add(new DropEntry(Items.GOLDEN_SWORD, 0.128f, Formatting.BLUE, 1));
-        drops.add(new DropEntry(Items.DIAMOND_SWORD, 0.070f, Formatting.LIGHT_PURPLE, 1));
-        drops.add(new DropEntry(Items.TRIDENT, 0.020f, Formatting.LIGHT_PURPLE, 1));
-        drops.add(new DropEntry(Items.NETHERITE_SWORD, 0.010f, Formatting.RED, 1));
+        drops.add(new DropEntry(Items.WOODEN_SWORD, 0.140f, Formatting.GREEN, 1));
+        drops.add(new DropEntry(Items.STONE_SWORD, 0.138f, Formatting.GREEN, 1));
+        drops.add(new DropEntry(Items.BOW, 0.108f, Formatting.GREEN, 1));
+        drops.add(new DropEntry(Items.COPPER_SWORD, 0.120f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.IRON_SWORD, 0.112f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.CROSSBOW, 0.090f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.SHIELD, 0.090f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.GOLDEN_SWORD, 0.112f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.DIAMOND_SWORD, 0.060f, Formatting.LIGHT_PURPLE, 1));
+        drops.add(new DropEntry(Items.TRIDENT, 0.018f, Formatting.LIGHT_PURPLE, 1));
+        drops.add(new DropEntry(Items.NETHERITE_SWORD, 0.009f, Formatting.RED, 1));
         drops.add(new DropEntry(Items.MACE, 0.003f, Formatting.RED, 1));
         return drops;
     }
@@ -401,22 +402,26 @@ class ToolBoxItem extends ResourceBoxItem {
     @Override
     protected List<DropEntry> getDrops() {
         List<DropEntry> drops = new ArrayList<>();
-        drops.add(new DropEntry(Items.WOODEN_PICKAXE, 0.120f, Formatting.GREEN, 1));
-        drops.add(new DropEntry(Items.WOODEN_AXE, 0.120f, Formatting.GREEN, 1));
-        drops.add(new DropEntry(Items.WOODEN_SHOVEL, 0.120f, Formatting.GREEN, 1));
-        drops.add(new DropEntry(Items.WOODEN_HOE, 0.120f, Formatting.GREEN, 1));
-        drops.add(new DropEntry(Items.STONE_PICKAXE, 0.080f, Formatting.BLUE, 1));
-        drops.add(new DropEntry(Items.STONE_AXE, 0.080f, Formatting.BLUE, 1));
-        drops.add(new DropEntry(Items.STONE_SHOVEL, 0.080f, Formatting.BLUE, 1));
-        drops.add(new DropEntry(Items.STONE_HOE, 0.080f, Formatting.BLUE, 1));
-        drops.add(new DropEntry(Items.DIAMOND_PICKAXE, 0.040f, Formatting.LIGHT_PURPLE, 1));
-        drops.add(new DropEntry(Items.DIAMOND_AXE, 0.040f, Formatting.LIGHT_PURPLE, 1));
-        drops.add(new DropEntry(Items.DIAMOND_SHOVEL, 0.040f, Formatting.LIGHT_PURPLE, 1));
-        drops.add(new DropEntry(Items.DIAMOND_HOE, 0.040f, Formatting.LIGHT_PURPLE, 1));
-        drops.add(new DropEntry(Items.NETHERITE_PICKAXE, 0.010f, Formatting.RED, 1));
-        drops.add(new DropEntry(Items.NETHERITE_AXE, 0.010f, Formatting.RED, 1));
-        drops.add(new DropEntry(Items.NETHERITE_SHOVEL, 0.010f, Formatting.RED, 1));
-        drops.add(new DropEntry(Items.NETHERITE_HOE, 0.010f, Formatting.RED, 1));
+        drops.add(new DropEntry(Items.WOODEN_PICKAXE, 0.096f, Formatting.GREEN, 1));
+        drops.add(new DropEntry(Items.WOODEN_AXE, 0.096f, Formatting.GREEN, 1));
+        drops.add(new DropEntry(Items.WOODEN_SHOVEL, 0.096f, Formatting.GREEN, 1));
+        drops.add(new DropEntry(Items.WOODEN_HOE, 0.096f, Formatting.GREEN, 1));
+        drops.add(new DropEntry(Items.STONE_PICKAXE, 0.064f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.STONE_AXE, 0.064f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.STONE_SHOVEL, 0.064f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.STONE_HOE, 0.064f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.COPPER_PICKAXE, 0.050f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.COPPER_AXE, 0.050f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.COPPER_SHOVEL, 0.050f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.COPPER_HOE, 0.050f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.DIAMOND_PICKAXE, 0.032f, Formatting.LIGHT_PURPLE, 1));
+        drops.add(new DropEntry(Items.DIAMOND_AXE, 0.032f, Formatting.LIGHT_PURPLE, 1));
+        drops.add(new DropEntry(Items.DIAMOND_SHOVEL, 0.032f, Formatting.LIGHT_PURPLE, 1));
+        drops.add(new DropEntry(Items.DIAMOND_HOE, 0.032f, Formatting.LIGHT_PURPLE, 1));
+        drops.add(new DropEntry(Items.NETHERITE_PICKAXE, 0.008f, Formatting.RED, 1));
+        drops.add(new DropEntry(Items.NETHERITE_AXE, 0.008f, Formatting.RED, 1));
+        drops.add(new DropEntry(Items.NETHERITE_SHOVEL, 0.008f, Formatting.RED, 1));
+        drops.add(new DropEntry(Items.NETHERITE_HOE, 0.008f, Formatting.RED, 1));
         return drops;
     }
 }
@@ -429,22 +434,26 @@ class ArmorBoxItem extends ResourceBoxItem {
     @Override
     protected List<DropEntry> getDrops() {
         List<DropEntry> drops = new ArrayList<>();
-        drops.add(new DropEntry(Items.LEATHER_HELMET, 0.120f, Formatting.GREEN, 1));
-        drops.add(new DropEntry(Items.LEATHER_CHESTPLATE, 0.120f, Formatting.GREEN, 1));
-        drops.add(new DropEntry(Items.LEATHER_LEGGINGS, 0.120f, Formatting.GREEN, 1));
-        drops.add(new DropEntry(Items.LEATHER_BOOTS, 0.120f, Formatting.GREEN, 1));
-        drops.add(new DropEntry(Items.IRON_HELMET, 0.080f, Formatting.BLUE, 1));
-        drops.add(new DropEntry(Items.IRON_CHESTPLATE, 0.080f, Formatting.BLUE, 1));
-        drops.add(new DropEntry(Items.IRON_LEGGINGS, 0.080f, Formatting.BLUE, 1));
-        drops.add(new DropEntry(Items.IRON_BOOTS, 0.080f, Formatting.BLUE, 1));
-        drops.add(new DropEntry(Items.DIAMOND_HELMET, 0.040f, Formatting.LIGHT_PURPLE, 1));
-        drops.add(new DropEntry(Items.DIAMOND_CHESTPLATE, 0.040f, Formatting.LIGHT_PURPLE, 1));
-        drops.add(new DropEntry(Items.DIAMOND_LEGGINGS, 0.040f, Formatting.LIGHT_PURPLE, 1));
-        drops.add(new DropEntry(Items.DIAMOND_BOOTS, 0.040f, Formatting.LIGHT_PURPLE, 1));
-        drops.add(new DropEntry(Items.NETHERITE_HELMET, 0.010f, Formatting.RED, 1));
-        drops.add(new DropEntry(Items.NETHERITE_CHESTPLATE, 0.010f, Formatting.RED, 1));
-        drops.add(new DropEntry(Items.NETHERITE_LEGGINGS, 0.010f, Formatting.RED, 1));
-        drops.add(new DropEntry(Items.NETHERITE_BOOTS, 0.010f, Formatting.RED, 1));
+        drops.add(new DropEntry(Items.LEATHER_HELMET, 0.096f, Formatting.GREEN, 1));
+        drops.add(new DropEntry(Items.LEATHER_CHESTPLATE, 0.096f, Formatting.GREEN, 1));
+        drops.add(new DropEntry(Items.LEATHER_LEGGINGS, 0.096f, Formatting.GREEN, 1));
+        drops.add(new DropEntry(Items.LEATHER_BOOTS, 0.096f, Formatting.GREEN, 1));
+        drops.add(new DropEntry(Items.COPPER_HELMET, 0.050f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.COPPER_CHESTPLATE, 0.050f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.COPPER_LEGGINGS, 0.050f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.COPPER_BOOTS, 0.050f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.IRON_HELMET, 0.064f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.IRON_CHESTPLATE, 0.064f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.IRON_LEGGINGS, 0.064f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.IRON_BOOTS, 0.064f, Formatting.BLUE, 1));
+        drops.add(new DropEntry(Items.DIAMOND_HELMET, 0.032f, Formatting.LIGHT_PURPLE, 1));
+        drops.add(new DropEntry(Items.DIAMOND_CHESTPLATE, 0.032f, Formatting.LIGHT_PURPLE, 1));
+        drops.add(new DropEntry(Items.DIAMOND_LEGGINGS, 0.032f, Formatting.LIGHT_PURPLE, 1));
+        drops.add(new DropEntry(Items.DIAMOND_BOOTS, 0.032f, Formatting.LIGHT_PURPLE, 1));
+        drops.add(new DropEntry(Items.NETHERITE_HELMET, 0.008f, Formatting.RED, 1));
+        drops.add(new DropEntry(Items.NETHERITE_CHESTPLATE, 0.008f, Formatting.RED, 1));
+        drops.add(new DropEntry(Items.NETHERITE_LEGGINGS, 0.008f, Formatting.RED, 1));
+        drops.add(new DropEntry(Items.NETHERITE_BOOTS, 0.008f, Formatting.RED, 1));
         return drops;
     }
 }

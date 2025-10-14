@@ -1,0 +1,20 @@
+{
+  "itemGroup.resourceboxes.resourceboxes_group": "Boîtes de Ressources",
+  "item.resourceboxes.ore_box": "Boîte de Minerai",
+  "item.resourceboxes.food_box": "Boîte de Nourriture",
+  "item.resourceboxes.nether_box": "Boîte du Nether",
+  "item.resourceboxes.end_box": "Boîte de l'End",
+  "item.resourceboxes.weapon_box": "Boîte d'Armes",
+  "item.resourceboxes.tool_box": "Boîte d'Outils",
+  "item.resourceboxes.armor_box": "Boîte d'Armure",
+  "item.resourceboxes.trim_box": "Boîte de Taille",
+  "item.resourceboxes.resource_ore": "Minerai de Ressource",
+  "item.resourceboxes.deepslate_resource_ore": "Minerai de Ressource de Schiste Profond",
+  "item.resourceboxes.resource_shard": "Éclat de Ressource",
+  "item.resourceboxes.resource_gem": "Gemme de Ressource",
+  "item.resourceboxes.resource_block": "Bloc de Ressource",
+  "block.resourceboxes.resource_ore": "Minerai de Ressource",
+  "block.resourceboxes.deepslate_resource_ore": "Minerai de Ressource de Schiste Profond",
+  "tooltip.resourceboxes.possible_drops": "Butins Possibles :",
+  "tooltip.resourceboxes.drop_entry": "%s : %s"
+}

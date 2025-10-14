@@ -1,0 +1,20 @@
+{
+  "itemGroup.resourceboxes.resourceboxes_group": "资源箱子",
+  "item.resourceboxes.ore_box": "矿石箱",
+  "item.resourceboxes.food_box": "食物箱",
+  "item.resourceboxes.nether_box": "下界箱",
+  "item.resourceboxes.end_box": "末地箱",
+  "item.resourceboxes.weapon_box": "武器箱",
+  "item.resourceboxes.tool_box": "工具箱",
+  "item.resourceboxes.armor_box": "盔甲箱",
+  "item.resourceboxes.trim_box": "镶饰箱",
+  "item.resourceboxes.resource_ore": "资源矿石",
+  "item.resourceboxes.deepslate_resource_ore": "深板岩资源矿石",
+  "item.resourceboxes.resource_shard": "资源碎片",
+  "item.resourceboxes.resource_gem": "资源宝石",
+  "item.resourceboxes.resource_block": "资源块",
+  "block.resourceboxes.resource_ore": "资源矿石",
+  "block.resourceboxes.deepslate_resource_ore": "深板岩资源矿石",
+  "tooltip.resourceboxes.possible_drops": "可能的掉落物：",
+  "tooltip.resourceboxes.drop_entry": "%s：%s"
+}

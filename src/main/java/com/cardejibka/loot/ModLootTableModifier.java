@@ -49,7 +49,7 @@ public class ModLootTableModifier {
                         .with(ItemEntry.builder(ResourceBoxesItems.RESOURCE_GEM)
                                 .weight(1)
                                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f))))
-                        .conditionally(RandomChanceLootCondition.builder(0.03f));
+                        .conditionally(RandomChanceLootCondition.builder(0.24f));
                 tableBuilder.pool(resourceGemPool.build());
             }
 
@@ -61,7 +61,7 @@ public class ModLootTableModifier {
                         .with(ItemEntry.builder(ResourceBoxesItems.ORE_BOX)
                                 .weight(1)
                                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f))))
-                        .conditionally(RandomChanceLootCondition.builder(0.05f));
+                        .conditionally(RandomChanceLootCondition.builder(0.40f));
                 tableBuilder.pool(oreBoxPool.build());
             }
 
@@ -75,7 +75,7 @@ public class ModLootTableModifier {
                         .with(ItemEntry.builder(ResourceBoxesItems.FOOD_BOX)
                                 .weight(2)
                                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f))))
-                        .conditionally(RandomChanceLootCondition.builder(0.10f));
+                        .conditionally(RandomChanceLootCondition.builder(0.80f));
                 tableBuilder.pool(foodBoxPool.build());
             }
 
@@ -89,7 +89,7 @@ public class ModLootTableModifier {
                         .with(ItemEntry.builder(ResourceBoxesItems.WEAPON_BOX)
                                 .weight(1)
                                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f))))
-                        .conditionally(RandomChanceLootCondition.builder(0.07f));
+                        .conditionally(RandomChanceLootCondition.builder(0.56f));
                 tableBuilder.pool(weaponBoxPool.build());
             }
 
@@ -105,7 +105,7 @@ public class ModLootTableModifier {
                         .with(ItemEntry.builder(ResourceBoxesItems.TOOL_BOX)
                                 .weight(1)
                                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f))))
-                        .conditionally(RandomChanceLootCondition.builder(0.06f));
+                        .conditionally(RandomChanceLootCondition.builder(0.48f));
                 tableBuilder.pool(toolBoxPool.build());
             }
 
@@ -118,7 +118,7 @@ public class ModLootTableModifier {
                         .with(ItemEntry.builder(ResourceBoxesItems.ARMOR_BOX)
                                 .weight(1)
                                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f))))
-                        .conditionally(RandomChanceLootCondition.builder(0.08f));
+                        .conditionally(RandomChanceLootCondition.builder(0.64f));
                 tableBuilder.pool(armorBoxPool.build());
             }
 
@@ -130,7 +130,7 @@ public class ModLootTableModifier {
                         .with(ItemEntry.builder(ResourceBoxesItems.TRIM_BOX)
                                 .weight(1)
                                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f))))
-                        .conditionally(RandomChanceLootCondition.builder(0.04f));
+                        .conditionally(RandomChanceLootCondition.builder(0.32f));
                 tableBuilder.pool(trimBoxPool.build());
             }
 
@@ -142,7 +142,7 @@ public class ModLootTableModifier {
                         .with(ItemEntry.builder(ResourceBoxesItems.NETHER_BOX)
                                 .weight(1)
                                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f))))
-                        .conditionally(RandomChanceLootCondition.builder(0.06f));
+                        .conditionally(RandomChanceLootCondition.builder(0.48f));
                 tableBuilder.pool(netherBoxPool.build());
             }
 
@@ -152,7 +152,7 @@ public class ModLootTableModifier {
                         .with(ItemEntry.builder(ResourceBoxesItems.END_BOX)
                                 .weight(1)
                                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f))))
-                        .conditionally(RandomChanceLootCondition.builder(0.05f));
+                        .conditionally(RandomChanceLootCondition.builder(0.40f));
                 tableBuilder.pool(endBoxPool.build());
             }
         });
