@@ -9,7 +9,6 @@ The mod makes exploration more exciting by adding an element of luck to loot, an
 - Loot in structures: Boxes and Resource Gems are integrated into Minecraft structure loot tables with balanced probabilities (see "Spawn Locations" section).
 - New items: Resource Shard (from ore), Resource Gem (from shards), Resource Block (block from gems).
 - Tooltip hints: Show possible drops with probabilities and quantity ranges.
-- Compatibility: Fabric 1.21.8+. Works with JEI/REI for viewing recipes and loot. Support for other versions is planned.
 
 ## Usage
 ### Mining
