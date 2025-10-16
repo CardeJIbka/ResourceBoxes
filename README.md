@@ -1,6 +1,6 @@
 # Resource Boxes
 Resource Boxes is a Minecraft mod for Fabric that adds special "Resource Boxes," which, when used, dispense random resources, items, or equipment. Boxes can be found in chests of various structures (dungeons, villages, fortresses, etc.) with set probabilities, or crafted from the new "Resource Ore," which generates in the Overworld. Each box has a unique loot table with probabilities and chances for enchantments on tools, weapons, and armor.
-The mod makes exploration more exciting by adding an element of luck to loot, and simplifies resource gathering in survival mode. The current version is for Fabric 1.21.8, but ports to other Minecraft versions are planned.
+The mod makes exploration more exciting by adding an element of luck to loot, and simplifies resource gathering in survival mode.
 ## Main Features
 
 - 8 types of boxes: Ore Box (ores and ingots), Food Box (food), Weapon Box (weapons), Tool Box (tools), Armor Box (armor), Nether Box (Nether resources), End Box (End resources), and Trim Box (armor trim patterns).
@@ -9,7 +9,6 @@ The mod makes exploration more exciting by adding an element of luck to loot, an
 - Loot in structures: Boxes and Resource Gems are integrated into Minecraft structure loot tables with balanced probabilities (see "Spawn Locations" section).
 - New items: Resource Shard (from ore), Resource Gem (from shards), Resource Block (block from gems).
 - Tooltip hints: Show possible drops with probabilities and quantity ranges.
-- Compatibility: Fabric 1.21.8+. Works with JEI/REI for viewing recipes and loot. Support for other versions is planned.
 
 ## Usage
 ### Mining
