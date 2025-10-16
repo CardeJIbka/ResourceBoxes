@@ -296,18 +296,20 @@ public abstract class ResourceBoxItem extends Item {
     }
 
     @Override
-    @Deprecated
-    public void appendTooltip(ItemStack stack, TooltipContext context, net.minecraft.component.type.TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
-        textConsumer.accept(Text.translatable("tooltip.resourceboxes.possible_drops").formatted(Formatting.GRAY));
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        super.appendTooltip(stack, context, tooltip, type);
+
+        tooltip.add(Text.translatable("tooltip.resourceboxes.possible_drops").formatted(Formatting.GRAY));
         for (DropEntry entry : getDrops()) {
             float chancePercent = entry.chance * 100;
             String chanceStr = chancePercent % 1 == 0 ? String.format("%.0f%%", chancePercent) : String.format("%.1f%%", chancePercent);
             MutableText itemName = Text.literal(entry.item.getName().getString()).formatted(entry.color);
-            MutableText tooltipText = itemName.append(Text.literal(": ").formatted(Formatting.GRAY)).append(Text.literal(chanceStr).formatted(Formatting.GRAY));
+            MutableText tooltipText = itemName.append(Text.literal(": ").formatted(Formatting.GRAY))
+                    .append(Text.literal(chanceStr).formatted(Formatting.GRAY));
             if (entry.maxCount > 1) {
                 tooltipText = tooltipText.append(Text.literal(" (x1 - x" + entry.maxCount + ")").formatted(Formatting.GRAY));
             }
-            textConsumer.accept(tooltipText);
+            tooltip.add(tooltipText);
         }
     }
 
