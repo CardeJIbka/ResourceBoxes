@@ -19,70 +19,58 @@ public class ResourceBoxesItems {
 
     public static final Item ORE_BOX = register("ore_box", new OreBoxItem(new Item.Settings() {
         {
-            registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ResourceBoxes.MOD_ID, "ore_box")));
             maxCount(64);
         }
     }));
     public static final Item FOOD_BOX = register("food_box", new FoodBoxItem(new Item.Settings() {
         {
-            registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ResourceBoxes.MOD_ID, "food_box")));
             maxCount(64);
         }
     }));
     public static final Item WEAPON_BOX = register("weapon_box", new WeaponBoxItem(new Item.Settings() {
         {
-            registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ResourceBoxes.MOD_ID, "weapon_box")));
             maxCount(64);
         }
     }));
     public static final Item TOOL_BOX = register("tool_box", new ToolBoxItem(new Item.Settings() {
         {
-            registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ResourceBoxes.MOD_ID, "tool_box")));
             maxCount(64);
         }
     }));
     public static final Item ARMOR_BOX = register("armor_box", new ArmorBoxItem(new Item.Settings() {
         {
-            registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ResourceBoxes.MOD_ID, "armor_box")));
             maxCount(64);
         }
     }));
     public static final Item NETHER_BOX = register("nether_box", new NetherBoxItem(new Item.Settings() {
         {
-            registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ResourceBoxes.MOD_ID, "nether_box")));
             maxCount(64);
         }
     }));
     public static final Item END_BOX = register("end_box", new EndBoxItem(new Item.Settings() {
         {
-            registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ResourceBoxes.MOD_ID, "end_box")));
             maxCount(64);
         }
     }));
     public static final Item TRIM_BOX = register("trim_box", new TrimBoxItem(new Item.Settings() {
         {
-            registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ResourceBoxes.MOD_ID, "trim_box")));
             maxCount(64);
         }
     }));
     public static final Item RESOURCE_SHARD = register("resource_shard", new Item(new Item.Settings() {
         {
-            registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ResourceBoxes.MOD_ID, "resource_shard")));
             maxCount(64);
         }
     }));
     public static final Item RESOURCE_GEM = register("resource_gem", new Item(new Item.Settings() {
         {
-            registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ResourceBoxes.MOD_ID, "resource_gem")));
             maxCount(64);
         }
     }));
 
-
     private static Item register(String name, Item item) {
         Identifier id = Identifier.of(ResourceBoxes.MOD_ID, name);
-        RegistryKey<Item> key = RegistryKey.of(RegistryKeys.ITEM, id);
-        return Registry.register(Registries.ITEM, key, item);
+        return Registry.register(Registries.ITEM, id, item);
     }
 
     public static void initialize() {

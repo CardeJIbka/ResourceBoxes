@@ -5,6 +5,7 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Equipment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -15,16 +16,15 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.text.Text;
 import net.minecraft.text.MutableText;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.function.Consumer;
 
 public abstract class ResourceBoxItem extends Item {
     public ResourceBoxItem(Settings settings) {
@@ -59,7 +59,7 @@ public abstract class ResourceBoxItem extends Item {
     }
 
     @Override
-    public ActionResult use(World world, PlayerEntity user, Hand hand) {
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         if (!world.isClient) {
             List<DropEntry> drops = getDrops();
@@ -83,7 +83,7 @@ public abstract class ResourceBoxItem extends Item {
             Item selectedItem = selectedEntry.item;
 
             boolean isEquip = selectedItem.getDefaultStack().contains(DataComponentTypes.TOOL) ||
-                    selectedItem.getDefaultStack().contains(DataComponentTypes.EQUIPPABLE) ||
+                    (selectedItem instanceof Equipment) ||
                     selectedItem.getRegistryEntry().isIn(ItemTags.SWORDS) ||
                     selectedItem == Items.BOW || selectedItem == Items.CROSSBOW ||
                     selectedItem == Items.TRIDENT || selectedItem == Items.MACE;
@@ -108,58 +108,56 @@ public abstract class ResourceBoxItem extends Item {
             ItemStack dropStack = new ItemStack(selectedItem, count);
 
             if (isEquip) {
-                Registry<Enchantment> enchantmentRegistry = world.getRegistryManager().getOrThrow(RegistryKeys.ENCHANTMENT);
+                Registry<Enchantment> enchantmentRegistry = world.getRegistryManager().get(RegistryKeys.ENCHANTMENT);
 
-                if (selectedItem.getDefaultStack().contains(DataComponentTypes.EQUIPPABLE)) {
-                    var equippable = dropStack.get(DataComponentTypes.EQUIPPABLE);
-                    if (equippable != null) {
-                        var slot = equippable.slot();
-                        if (random.nextDouble() < 0.30) {
-                            RegistryEntry<Enchantment> enchant;
-                            double protectionType = random.nextDouble();
-                            if (protectionType < 0.33) {
-                                enchant = enchantmentRegistry.getEntry(Enchantments.PROTECTION.getValue()).orElse(null);
-                                if (enchant != null) {
-                                    dropStack.addEnchantment(enchant, getEnchantmentLevel(random, 4));
-                                }
-                            } else if (protectionType < 0.66) {
-                                enchant = enchantmentRegistry.getEntry(Enchantments.FIRE_PROTECTION.getValue()).orElse(null);
-                                if (enchant != null) {
-                                    dropStack.addEnchantment(enchant, getEnchantmentLevel(random, 4));
-                                }
-                            } else {
-                                enchant = enchantmentRegistry.getEntry(Enchantments.PROJECTILE_PROTECTION.getValue()).orElse(null);
-                                if (enchant != null) {
-                                    dropStack.addEnchantment(enchant, getEnchantmentLevel(random, 4));
-                                }
-                            }
-                        }
-                        if (random.nextDouble() < 0.30) {
-                            enchantmentRegistry.getEntry(Enchantments.UNBREAKING.getValue()).ifPresent(enchant -> dropStack.addEnchantment(enchant, getEnchantmentLevel(random, 3)));
-                        }
-                        if (random.nextDouble() < 0.01) {
-                            enchantmentRegistry.getEntry(Enchantments.MENDING.getValue()).ifPresent(enchant -> dropStack.addEnchantment(enchant, 1));
-                        }
+                if (selectedItem instanceof Equipment equippable) {
+                    EquipmentSlot slot = equippable.getSlotType();
 
-                        if (slot == EquipmentSlot.HEAD) {
-                            if (random.nextDouble() < 0.30) {
-                                enchantmentRegistry.getEntry(Enchantments.RESPIRATION.getValue()).ifPresent(enchant -> dropStack.addEnchantment(enchant, getEnchantmentLevel(random, 3)));
+                    if (random.nextDouble() < 0.30) {
+                        RegistryEntry<Enchantment> enchant;
+                        double protectionType = random.nextDouble();
+                        if (protectionType < 0.33) {
+                            enchant = enchantmentRegistry.getEntry(Enchantments.PROTECTION.getValue()).orElse(null);
+                            if (enchant != null) {
+                                dropStack.addEnchantment(enchant, getEnchantmentLevel(random, 4));
                             }
-                            if (random.nextDouble() < 0.10) {
-                                enchantmentRegistry.getEntry(Enchantments.AQUA_AFFINITY.getValue()).ifPresent(enchant -> dropStack.addEnchantment(enchant, 1));
+                        } else if (protectionType < 0.66) {
+                            enchant = enchantmentRegistry.getEntry(Enchantments.FIRE_PROTECTION.getValue()).orElse(null);
+                            if (enchant != null) {
+                                dropStack.addEnchantment(enchant, getEnchantmentLevel(random, 4));
+                            }
+                        } else {
+                            enchant = enchantmentRegistry.getEntry(Enchantments.PROJECTILE_PROTECTION.getValue()).orElse(null);
+                            if (enchant != null) {
+                                dropStack.addEnchantment(enchant, getEnchantmentLevel(random, 4));
                             }
                         }
-                        else if (slot == EquipmentSlot.FEET) {
-                            if (random.nextDouble() < 0.30) {
-                                enchantmentRegistry.getEntry(Enchantments.FEATHER_FALLING.getValue()).ifPresent(enchant -> dropStack.addEnchantment(enchant, getEnchantmentLevel(random, 4)));
-                            }
-                            if (random.nextDouble() < 0.10) {
-                                enchantmentRegistry.getEntry(Enchantments.DEPTH_STRIDER.getValue()).ifPresent(enchant -> dropStack.addEnchantment(enchant, getEnchantmentLevel(random, 3)));
-                            }
-                            RegistryEntry<Enchantment> depthStriderEntry = enchantmentRegistry.getEntry(Enchantments.DEPTH_STRIDER.getValue()).orElse(null);
-                            if (random.nextDouble() < 0.10 && (depthStriderEntry == null || dropStack.getEnchantments().getLevel(depthStriderEntry) <= 0)) {
-                                enchantmentRegistry.getEntry(Enchantments.FROST_WALKER.getValue()).ifPresent(enchant -> dropStack.addEnchantment(enchant, getEnchantmentLevel(random, 2)));
-                            }
+                    }
+                    if (random.nextDouble() < 0.30) {
+                        enchantmentRegistry.getEntry(Enchantments.UNBREAKING.getValue()).ifPresent(enchant -> dropStack.addEnchantment(enchant, getEnchantmentLevel(random, 3)));
+                    }
+                    if (random.nextDouble() < 0.01) {
+                        enchantmentRegistry.getEntry(Enchantments.MENDING.getValue()).ifPresent(enchant -> dropStack.addEnchantment(enchant, 1));
+                    }
+
+                    if (slot == EquipmentSlot.HEAD) {
+                        if (random.nextDouble() < 0.30) {
+                            enchantmentRegistry.getEntry(Enchantments.RESPIRATION.getValue()).ifPresent(enchant -> dropStack.addEnchantment(enchant, getEnchantmentLevel(random, 3)));
+                        }
+                        if (random.nextDouble() < 0.10) {
+                            enchantmentRegistry.getEntry(Enchantments.AQUA_AFFINITY.getValue()).ifPresent(enchant -> dropStack.addEnchantment(enchant, 1));
+                        }
+                    }
+                    else if (slot == EquipmentSlot.FEET) {
+                        if (random.nextDouble() < 0.30) {
+                            enchantmentRegistry.getEntry(Enchantments.FEATHER_FALLING.getValue()).ifPresent(enchant -> dropStack.addEnchantment(enchant, getEnchantmentLevel(random, 4)));
+                        }
+                        if (random.nextDouble() < 0.10) {
+                            enchantmentRegistry.getEntry(Enchantments.DEPTH_STRIDER.getValue()).ifPresent(enchant -> dropStack.addEnchantment(enchant, getEnchantmentLevel(random, 3)));
+                        }
+                        RegistryEntry<Enchantment> depthStriderEntry = enchantmentRegistry.getEntry(Enchantments.DEPTH_STRIDER.getValue()).orElse(null);
+                        if (random.nextDouble() < 0.10 && (depthStriderEntry == null || dropStack.getEnchantments().getLevel(depthStriderEntry) <= 0)) {
+                            enchantmentRegistry.getEntry(Enchantments.FROST_WALKER.getValue()).ifPresent(enchant -> dropStack.addEnchantment(enchant, getEnchantmentLevel(random, 2)));
                         }
                     }
                 }
@@ -290,9 +288,9 @@ public abstract class ResourceBoxItem extends Item {
                 user.dropItem(dropStack, false);
             }
 
-            return ActionResult.SUCCESS;
+            return TypedActionResult.success(user.getStackInHand(hand));
         }
-        return ActionResult.CONSUME;
+        return TypedActionResult.consume(itemStack);
     }
 
     @Override

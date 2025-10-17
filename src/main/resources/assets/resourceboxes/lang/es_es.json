@@ -15,6 +15,7 @@
   "item.resourceboxes.resource_block": "Bloque de Recurso",
   "block.resourceboxes.resource_ore": "Mineral de Recurso",
   "block.resourceboxes.deepslate_resource_ore": "Mineral de Recurso de Pizarra Profunda",
+  "block.resourceboxes.resource_block": "Bloque de recursos",
   "tooltip.resourceboxes.possible_drops": "Botines Posibles:",
   "tooltip.resourceboxes.drop_entry": "%s: %s"
 }

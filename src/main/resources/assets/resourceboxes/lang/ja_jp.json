@@ -15,6 +15,7 @@
   "item.resourceboxes.resource_block": "リソースブロック",
   "block.resourceboxes.resource_ore": "リソース鉱石",
   "block.resourceboxes.deepslate_resource_ore": "深層岩リソース鉱石",
+  "block.resourceboxes.resource_block": "資源ブロック",
   "tooltip.resourceboxes.possible_drops": "可能なドロップ：",
   "tooltip.resourceboxes.drop_entry": "%s: %s"
 }

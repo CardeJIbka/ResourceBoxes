@@ -15,6 +15,7 @@
   "item.resourceboxes.resource_block": "Block of Resource",
   "block.resourceboxes.resource_ore": "Resource Ore",
   "block.resourceboxes.deepslate_resource_ore": "Deepslate Resource Ore",
+  "block.resourceboxes.resource_block": "Resource Block",
   "tooltip.resourceboxes.possible_drops": "Possible Drops:",
   "tooltip.resourceboxes.drop_entry": "%s: %s"
 }

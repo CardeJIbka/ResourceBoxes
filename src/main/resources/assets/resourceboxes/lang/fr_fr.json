@@ -15,6 +15,7 @@
   "item.resourceboxes.resource_block": "Bloc de Ressource",
   "block.resourceboxes.resource_ore": "Minerai de Ressource",
   "block.resourceboxes.deepslate_resource_ore": "Minerai de Ressource de Schiste Profond",
+  "block.resourceboxes.resource_block": "Bloc de ressource",
   "tooltip.resourceboxes.possible_drops": "Butins Possibles :",
   "tooltip.resourceboxes.drop_entry": "%s : %s"
 }
