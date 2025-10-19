@@ -7,9 +7,9 @@
     "SGS"
   ],
   "key": {
-    "C": "minecraft:chest",
-    "S": "minecraft:stone",
-    "G": "resourceboxes:resource_gem"
+    "C": {"item": "minecraft:chest"},
+    "S": {"item": "minecraft:stone"},
+    "G": {"item": "resourceboxes:resource_gem"}
   },
   "result": {
     "id": "resourceboxes:ore_box"

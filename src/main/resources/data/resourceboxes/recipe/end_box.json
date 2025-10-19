@@ -7,9 +7,9 @@
     "EGE"
   ],
   "key": {
-    "C": "minecraft:shulker_shell",
-    "E": "minecraft:end_stone",
-    "G": "resourceboxes:resource_gem"
+    "C": {"item": "minecraft:shulker_shell"},
+    "E": {"item": "minecraft:end_stone"},
+    "G": {"item": "resourceboxes:resource_gem"}
   },
   "result": {
     "id": "resourceboxes:end_box"

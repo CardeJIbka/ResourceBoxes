@@ -7,9 +7,9 @@
     " S "
   ],
   "key": {
-    "C": "minecraft:chest",
-    "S": "minecraft:stick",
-    "G": "resourceboxes:resource_gem"
+    "C": {"item": "minecraft:chest"},
+    "S": {"item": "minecraft:stick"},
+    "G": {"item": "resourceboxes:resource_gem"}
   },
   "result": {
     "id": "resourceboxes:tool_box"

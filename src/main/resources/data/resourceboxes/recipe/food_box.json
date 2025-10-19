@@ -7,9 +7,9 @@
     "SSS"
   ],
   "key": {
-    "C": "minecraft:chest",
-    "S": "minecraft:wheat_seeds",
-    "G": "resourceboxes:resource_gem"
+    "C": {"item": "minecraft:chest"},
+    "S": {"item": "minecraft:wheat_seeds"},
+    "G": {"item": "resourceboxes:resource_gem"}
   },
   "result": {
     "id": "resourceboxes:food_box"

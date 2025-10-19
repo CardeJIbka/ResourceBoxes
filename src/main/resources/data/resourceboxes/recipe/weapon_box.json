@@ -7,8 +7,8 @@
     " C "
   ],
   "key": {
-    "C": "minecraft:chest",
-    "G": "resourceboxes:resource_gem"
+    "C": {"item": "minecraft:chest"},
+    "G": {"item": "resourceboxes:resource_gem"}
   },
   "result": {
     "id": "resourceboxes:weapon_box"

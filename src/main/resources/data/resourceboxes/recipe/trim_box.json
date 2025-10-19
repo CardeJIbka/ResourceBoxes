@@ -7,8 +7,8 @@
     "BBB"
   ],
   "key": {
-    "C": "minecraft:chest",
-    "B": "resourceboxes:resource_block"
+    "C": {"item": "minecraft:chest"},
+    "B": {"item": "resourceboxes:resource_block"}
   },
   "result": {
     "id": "resourceboxes:trim_box"

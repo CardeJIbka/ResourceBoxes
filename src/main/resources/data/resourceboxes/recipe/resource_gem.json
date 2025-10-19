@@ -7,7 +7,7 @@
     " S "
   ],
   "key": {
-    "S": "resourceboxes:resource_shard"
+    "S": {"item": "resourceboxes:resource_shard"}
   },
   "result": {
     "id": "resourceboxes:resource_gem"

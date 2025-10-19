@@ -7,9 +7,9 @@
     "BGB"
   ],
   "key": {
-    "C": "minecraft:chest",
-    "B": "minecraft:nether_bricks",
-    "G": "resourceboxes:resource_gem"
+    "C": {"item": "minecraft:chest"},
+    "B": {"item": "minecraft:nether_bricks"},
+    "G": {"item": "resourceboxes:resource_gem"}
   },
   "result": {
     "id": "resourceboxes:nether_box"

@@ -7,7 +7,7 @@
     "   "
   ],
   "key": {
-    "B": "resourceboxes:resource_block"
+    "B": {"item": "resourceboxes:resource_block"}
   },
   "result": {
     "id": "resourceboxes:resource_gem",
