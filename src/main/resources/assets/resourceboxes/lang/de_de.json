@@ -15,6 +15,7 @@
   "item.resourceboxes.resource_block": "Ressourcenblock",
   "block.resourceboxes.resource_ore": "Ressourcerz",
   "block.resourceboxes.deepslate_resource_ore": "Tiefschiefer-Ressourcerz",
+  "block.resourceboxes.resource_block": "Ressourcenblock",
   "tooltip.resourceboxes.possible_drops": "Mögliche Drops:",
   "tooltip.resourceboxes.drop_entry": "%s: %s"
 }

@@ -15,6 +15,7 @@
   "item.resourceboxes.resource_block": "资源块",
   "block.resourceboxes.resource_ore": "资源矿石",
   "block.resourceboxes.deepslate_resource_ore": "深板岩资源矿石",
+  "block.resourceboxes.resource_block": "资源方块",
   "tooltip.resourceboxes.possible_drops": "可能的掉落物：",
   "tooltip.resourceboxes.drop_entry": "%s：%s"
 }

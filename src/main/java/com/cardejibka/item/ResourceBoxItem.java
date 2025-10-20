@@ -380,8 +380,8 @@ class WeaponBoxItem extends ResourceBoxItem {
     @Override
     protected List<DropEntry> getDrops() {
         List<DropEntry> drops = new ArrayList<>();
-        drops.add(new DropEntry(Items.WOODEN_SWORD, 0.157f, Formatting.GREEN, 1));
-        drops.add(new DropEntry(Items.STONE_SWORD, 0.157f, Formatting.GREEN, 1));
+        drops.add(new DropEntry(Items.WOODEN_SWORD, 0.156f, Formatting.GREEN, 1));
+        drops.add(new DropEntry(Items.STONE_SWORD, 0.156f, Formatting.GREEN, 1));
         drops.add(new DropEntry(Items.BOW, 0.123f, Formatting.GREEN, 1));
         drops.add(new DropEntry(Items.IRON_SWORD, 0.128f, Formatting.BLUE, 1));
         drops.add(new DropEntry(Items.CROSSBOW, 0.103f, Formatting.BLUE, 1));
@@ -484,7 +484,7 @@ class EndBoxItem extends ResourceBoxItem {
         List<DropEntry> drops = new ArrayList<>();
         drops.add(new DropEntry(Items.CHORUS_FRUIT, 0.18f, Formatting.GREEN, 8));
         drops.add(new DropEntry(Items.PURPUR_BLOCK, 0.16f, Formatting.GREEN, 4));
-        drops.add(new DropEntry(Items.ENDER_PEARL, 0.15f, Formatting.BLUE, 8));
+        drops.add(new DropEntry(Items.ENDER_PEARL, 0.16f, Formatting.BLUE, 8));
         drops.add(new DropEntry(Items.CHORUS_FLOWER, 0.10f, Formatting.BLUE, 4));
         drops.add(new DropEntry(Items.END_STONE, 0.12f, Formatting.BLUE, 8));
         drops.add(new DropEntry(Items.DRAGON_BREATH, 0.08f, Formatting.LIGHT_PURPLE, 2));

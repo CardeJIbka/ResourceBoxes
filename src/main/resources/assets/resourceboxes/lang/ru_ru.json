@@ -15,6 +15,7 @@
   "item.resourceboxes.resource_block": "Блок ресурса",
   "block.resourceboxes.resource_ore": "Ресурсная руда",
   "block.resourceboxes.deepslate_resource_ore": "Ресурсоносный глубинный сланец",
+  "block.resourceboxes.resource_block": "Блок ресурса",
   "tooltip.resourceboxes.possible_drops": "Возможные предметы:",
   "tooltip.resourceboxes.drop_entry": "%s: %s"
 }
