@@ -1,0 +1,6 @@
+{
+  "type": "resourceboxes:add_item",
+  "conditions": [{"condition": "forge:loot_table_id", "loot_table_id": "minecraft:chests/village/village_savanna_house"}],
+  "item": "resourceboxes:food_box",
+  "chance": 0.80
+}

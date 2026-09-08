@@ -1,0 +1,17 @@
+{
+  "type": "crafting_shaped",
+  "group": "resourceboxes_group",
+  "pattern": [
+    "GGG",
+    "GCG",
+    " S "
+  ],
+  "key": {
+    "C": {"item": "minecraft:chest"},
+    "S": {"item": "minecraft:stick"},
+    "G": {"item": "resourceboxes:resource_gem"}
+  },
+  "result": {
+    "item": "resourceboxes:tool_box"
+  }
+}

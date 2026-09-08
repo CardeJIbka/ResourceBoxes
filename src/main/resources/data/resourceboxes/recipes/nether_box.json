@@ -1,0 +1,17 @@
+{
+  "type": "crafting_shaped",
+  "group": "resourceboxes_group",
+  "pattern": [
+    "BGB",
+    "GCG",
+    "BGB"
+  ],
+  "key": {
+    "C": {"item": "minecraft:chest"},
+    "B": {"item": "minecraft:nether_bricks"},
+    "G": {"item": "resourceboxes:resource_gem"}
+  },
+  "result": {
+    "item": "resourceboxes:nether_box"
+  }
+}

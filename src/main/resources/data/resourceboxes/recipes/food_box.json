@@ -1,0 +1,17 @@
+{
+  "type": "crafting_shaped",
+  "group": "resourceboxes_group",
+  "pattern": [
+    "SSS",
+    "GCG",
+    "SSS"
+  ],
+  "key": {
+    "C": {"item": "minecraft:chest"},
+    "S": {"item": "minecraft:wheat_seeds"},
+    "G": {"item": "resourceboxes:resource_gem"}
+  },
+  "result": {
+    "item": "resourceboxes:food_box"
+  }
+}

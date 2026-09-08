@@ -1,0 +1,17 @@
+{
+  "type": "crafting_shaped",
+  "group": "resourceboxes_group",
+  "pattern": [
+    "SGS",
+    "GCG",
+    "SGS"
+  ],
+  "key": {
+    "C": {"item": "minecraft:chest"},
+    "S": {"item": "minecraft:stone"},
+    "G": {"item": "resourceboxes:resource_gem"}
+  },
+  "result": {
+    "item": "resourceboxes:ore_box"
+  }
+}

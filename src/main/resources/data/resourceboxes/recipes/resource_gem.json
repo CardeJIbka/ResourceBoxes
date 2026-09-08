@@ -1,0 +1,15 @@
+{
+  "type": "crafting_shaped",
+  "group": "resourceboxes_group",
+  "pattern": [
+    " S ",
+    "SSS",
+    " S "
+  ],
+  "key": {
+    "S": {"item": "resourceboxes:resource_shard"}
+  },
+  "result": {
+    "item": "resourceboxes:resource_gem"
+  }
+}

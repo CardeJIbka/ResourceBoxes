@@ -1,20 +1,19 @@
 package com.cardejibka.block;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.ExperienceDroppingBlock;
-import net.minecraft.item.ItemStack;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.intprovider.UniformIntProvider;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.DropExperienceBlock;
+import net.minecraft.world.level.block.state.BlockState;
 
-
-public class ResourceOreBlock extends ExperienceDroppingBlock {
-    public ResourceOreBlock(Settings settings) {
-        super(UniformIntProvider.create(0, 2), settings);  // Диапазон XP: 1-3 (минимум, максимум)
+public class ResourceOreBlock extends DropExperienceBlock {
+    public ResourceOreBlock(Properties properties) {
+        super(properties, UniformInt.of(0, 2));
     }
 
     @Override
-    public void onStacksDropped(BlockState state, ServerWorld world, BlockPos pos, ItemStack tool, boolean dropExperience) {
-        super.onStacksDropped(state, world, pos, tool, dropExperience);
+    public void spawnAfterBreak(BlockState state, ServerLevel level, BlockPos pos, ItemStack tool, boolean dropExperience) {
+        super.spawnAfterBreak(state, level, pos, tool, dropExperience);
     }
 }
