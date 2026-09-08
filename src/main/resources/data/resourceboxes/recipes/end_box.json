@@ -1,0 +1,17 @@
+{
+  "type": "crafting_shaped",
+  "group": "resourceboxes_group",
+  "pattern": [
+    "EGE",
+    "GCG",
+    "EGE"
+  ],
+  "key": {
+    "C": {"item": "minecraft:shulker_shell"},
+    "E": {"item": "minecraft:end_stone"},
+    "G": {"item": "resourceboxes:resource_gem"}
+  },
+  "result": {
+    "item": "resourceboxes:end_box"
+  }
+}

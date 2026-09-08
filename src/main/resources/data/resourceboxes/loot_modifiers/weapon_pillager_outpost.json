@@ -1,0 +1,6 @@
+{
+  "type": "resourceboxes:add_item",
+  "conditions": [{"condition": "forge:loot_table_id", "loot_table_id": "minecraft:chests/pillager_outpost"}],
+  "item": "resourceboxes:weapon_box",
+  "chance": 0.56
+}

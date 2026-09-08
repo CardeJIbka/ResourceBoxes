@@ -1,0 +1,6 @@
+{
+  "type": "resourceboxes:add_item",
+  "conditions": [{"condition": "forge:loot_table_id", "loot_table_id": "minecraft:chests/shipwreck_treasure"}],
+  "item": "resourceboxes:armor_box",
+  "chance": 0.64
+}

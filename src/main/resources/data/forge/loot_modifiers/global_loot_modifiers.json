@@ -1,0 +1,50 @@
+{
+  "replace": false,
+  "entries": [
+    "resourceboxes:gem_simple_dungeon",
+    "resourceboxes:gem_jungle_temple",
+    "resourceboxes:gem_desert_pyramid",
+    "resourceboxes:gem_shipwreck_treasure",
+    "resourceboxes:gem_underwater_ruin_warm",
+    "resourceboxes:gem_witch_hut",
+
+    "resourceboxes:ore_simple_dungeon",
+    "resourceboxes:ore_abandoned_mineshaft",
+    "resourceboxes:ore_underwater_ruin_warm",
+
+    "resourceboxes:food_village_plains",
+    "resourceboxes:food_village_desert",
+    "resourceboxes:food_village_savanna",
+    "resourceboxes:food_village_snowy",
+    "resourceboxes:food_village_taiga",
+
+    "resourceboxes:weapon_pillager_outpost",
+    "resourceboxes:weapon_stronghold_corridor",
+    "resourceboxes:weapon_stronghold_library",
+    "resourceboxes:weapon_desert_pyramid",
+    "resourceboxes:weapon_witch_hut",
+
+    "resourceboxes:tool_abandoned_mineshaft",
+    "resourceboxes:tool_village_plains",
+    "resourceboxes:tool_village_desert",
+    "resourceboxes:tool_village_savanna",
+    "resourceboxes:tool_village_snowy",
+    "resourceboxes:tool_village_taiga",
+    "resourceboxes:tool_underwater_ruin_warm",
+
+    "resourceboxes:armor_stronghold_corridor",
+    "resourceboxes:armor_stronghold_library",
+    "resourceboxes:armor_buried_treasure",
+    "resourceboxes:armor_shipwreck_treasure",
+
+    "resourceboxes:trim_ancient_city",
+    "resourceboxes:trim_stronghold_corridor",
+    "resourceboxes:trim_stronghold_library",
+
+    "resourceboxes:nether_bastion_treasure",
+    "resourceboxes:nether_bastion_hoglin_stable",
+    "resourceboxes:nether_ruined_portal",
+
+    "resourceboxes:end_end_city_treasure"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "crafting_shaped",
+  "group": "resourceboxes_group",
+  "pattern": [
+    "BBB",
+    "BCB",
+    "BBB"
+  ],
+  "key": {
+    "C": {"item": "minecraft:chest"},
+    "B": {"item": "resourceboxes:resource_block"}
+  },
+  "result": {
+    "item": "resourceboxes:trim_box"
+  }
+}

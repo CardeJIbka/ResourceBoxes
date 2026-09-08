@@ -2,96 +2,61 @@ package com.cardejibka.item;
 
 import com.cardejibka.ResourceBoxes;
 import com.cardejibka.block.ResourceBlocks;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.RegistryObject;
 
 public class ResourceBoxesItems {
     private ResourceBoxesItems() {}
 
-    public static final RegistryKey<ItemGroup> RESOURCE_BOXES_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(ResourceBoxes.MOD_ID, "resourceboxes_group"));
+    public static final DeferredRegister<Item> ITEMS =
+            DeferredRegister.create(Registries.ITEM, ResourceBoxes.MOD_ID);
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS =
+            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ResourceBoxes.MOD_ID);
 
-    public static final Item ORE_BOX = register("ore_box", new OreBoxItem(new Item.Settings() {
-        {
-            maxCount(64);
-        }
-    }));
-    public static final Item FOOD_BOX = register("food_box", new FoodBoxItem(new Item.Settings() {
-        {
-            maxCount(64);
-        }
-    }));
-    public static final Item WEAPON_BOX = register("weapon_box", new WeaponBoxItem(new Item.Settings() {
-        {
-            maxCount(64);
-        }
-    }));
-    public static final Item TOOL_BOX = register("tool_box", new ToolBoxItem(new Item.Settings() {
-        {
-            maxCount(64);
-        }
-    }));
-    public static final Item ARMOR_BOX = register("armor_box", new ArmorBoxItem(new Item.Settings() {
-        {
-            maxCount(64);
-        }
-    }));
-    public static final Item NETHER_BOX = register("nether_box", new NetherBoxItem(new Item.Settings() {
-        {
-            maxCount(64);
-        }
-    }));
-    public static final Item END_BOX = register("end_box", new EndBoxItem(new Item.Settings() {
-        {
-            maxCount(64);
-        }
-    }));
-    public static final Item TRIM_BOX = register("trim_box", new TrimBoxItem(new Item.Settings() {
-        {
-            maxCount(64);
-        }
-    }));
-    public static final Item RESOURCE_SHARD = register("resource_shard", new Item(new Item.Settings() {
-        {
-            maxCount(64);
-        }
-    }));
-    public static final Item RESOURCE_GEM = register("resource_gem", new Item(new Item.Settings() {
-        {
-            maxCount(64);
-        }
-    }));
+    public static final RegistryObject<Item> ORE_BOX = ITEMS.register("ore_box",
+            () -> new OreBoxItem(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> FOOD_BOX = ITEMS.register("food_box",
+            () -> new FoodBoxItem(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> WEAPON_BOX = ITEMS.register("weapon_box",
+            () -> new WeaponBoxItem(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> TOOL_BOX = ITEMS.register("tool_box",
+            () -> new ToolBoxItem(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> ARMOR_BOX = ITEMS.register("armor_box",
+            () -> new ArmorBoxItem(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> NETHER_BOX = ITEMS.register("nether_box",
+            () -> new NetherBoxItem(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> END_BOX = ITEMS.register("end_box",
+            () -> new EndBoxItem(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> TRIM_BOX = ITEMS.register("trim_box",
+            () -> new TrimBoxItem(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> RESOURCE_SHARD = ITEMS.register("resource_shard",
+            () -> new Item(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> RESOURCE_GEM = ITEMS.register("resource_gem",
+            () -> new Item(new Item.Properties().stacksTo(64)));
 
-    private static Item register(String name, Item item) {
-        Identifier id = Identifier.of(ResourceBoxes.MOD_ID, name);
-        return Registry.register(Registries.ITEM, id, item);
-    }
-
-    public static void initialize() {
-        Registry.register(Registries.ITEM_GROUP, RESOURCE_BOXES_GROUP, ItemGroup.create(null, 0)
-                .displayName(Text.translatable("itemGroup.resourceboxes.resourceboxes_group"))
-                .icon(() -> new ItemStack(ORE_BOX))
-                .entries((displayContext, entries) -> {
-                    entries.add(ORE_BOX);
-                    entries.add(FOOD_BOX);
-                    entries.add(WEAPON_BOX);
-                    entries.add(TOOL_BOX);
-                    entries.add(ARMOR_BOX);
-                    entries.add(TRIM_BOX);
-                    entries.add(NETHER_BOX);
-                    entries.add(END_BOX);
-                    entries.add(RESOURCE_SHARD);
-                    entries.add(RESOURCE_GEM);
-                    entries.add(ResourceBlocks.RESOURCE_BLOCK);
-                    entries.add(ResourceBlocks.RESOURCE_ORE);
-                    entries.add(ResourceBlocks.DEEPSLATE_RESOURCE_ORE);
-                })
-                .build());
-    }
+    public static final RegistryObject<CreativeModeTab> RESOURCE_BOXES_GROUP = CREATIVE_TABS.register("resourceboxes_group",
+            () -> CreativeModeTab.builder()
+                    .title(Component.translatable("itemGroup.resourceboxes.resourceboxes_group"))
+                    .icon(() -> new ItemStack(ORE_BOX.get()))
+                    .displayItems((parameters, output) -> {
+                        output.accept(ORE_BOX.get());
+                        output.accept(FOOD_BOX.get());
+                        output.accept(WEAPON_BOX.get());
+                        output.accept(TOOL_BOX.get());
+                        output.accept(ARMOR_BOX.get());
+                        output.accept(TRIM_BOX.get());
+                        output.accept(NETHER_BOX.get());
+                        output.accept(END_BOX.get());
+                        output.accept(RESOURCE_SHARD.get());
+                        output.accept(RESOURCE_GEM.get());
+                        output.accept(ResourceBlocks.RESOURCE_BLOCK.get().asItem());
+                        output.accept(ResourceBlocks.RESOURCE_ORE.get().asItem());
+                        output.accept(ResourceBlocks.DEEPSLATE_RESOURCE_ORE.get().asItem());
+                    })
+                    .build());
 }
